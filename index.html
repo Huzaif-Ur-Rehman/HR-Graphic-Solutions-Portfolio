@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HR Graphic Solutions - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Graphic Solutions | Creative Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="interactivity.js"></script>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="logo">
-      <img src="HR.png" alt="HR Graphic Solutions Logo">
+      <img src="HR.png" alt="HR Graphic Solutions Logo" />
       <h1>HR Graphic Solutions</h1>
     </div>
     <nav class="navbar">
@@ -24,74 +24,122 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Creative Graphic Design Agency</h2>
-    <p>We design impactful visuals to make your brand stand out.</p>
-    <a href="#contact" class="btn">Work With Us</a>
+    <div class="hero-content">
+      <h2>Designs that Define Brands</h2>
+      <p>We craft digital visuals that tell your story with creativity and strategy.</p>
+      <a href="#contact" class="btn">Let’s Collaborate</a>
+    </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about">
+  <section id="about" class="about section">
     <h2>About Us</h2>
     <p>
-      At <strong>HR Graphic Solutions</strong>, we provide innovative and customized 
-      graphic design services for brands and businesses. Our goal is to 
-      deliver visually compelling designs that connect with your audience.
+      <strong>HR Graphic Solutions</strong> is a professional graphic design agency
+      focused on delivering meaningful and memorable designs. From logos to brand
+      identity systems, we transform ideas into visuals that connect with people.
     </p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Creative Excellence</h3>
+        <p>Every project is designed to reflect originality, balance, and precision.</p>
+      </div>
+      <div class="about-card">
+        <h3>Brand Focused</h3>
+        <p>We align your brand’s visual identity with your business vision.</p>
+      </div>
+      <div class="about-card">
+        <h3>Results Driven</h3>
+        <p>Our designs help brands increase recognition and customer engagement.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="services">
-    <h2>Our Services</h2>
+  <section id="services" class="services section">
+    <h2>Our Expertise</h2>
+    <p class="section-subtitle">Comprehensive design solutions for modern brands.</p>
     <div class="card-container">
-      <div class="card">
+      <div class="card" data-tooltip="Brand-first logo creation">
         <h3>Logo Design</h3>
-        <p>Creative, modern, and professional logos that represent your brand identity.</p>
+        <p>Creative, timeless logos that define your brand identity.</p>
       </div>
-      <div class="card">
+      <div class="card" data-tooltip="Instagram, Facebook, LinkedIn visuals">
         <h3>Social Media Graphics</h3>
-        <p>Custom designs for posts, ads, and stories to boost engagement.</p>
+        <p>Custom visuals for posts, ads, and stories to boost engagement.</p>
       </div>
-      <div class="card">
+      <div class="card" data-tooltip="Your visual identity package">
         <h3>Brand Identity</h3>
-        <p>Complete brand kits including colors, typography, and style guides.</p>
+        <p>Logo variations, fonts, and style guides for brand consistency.</p>
       </div>
-      <div class="card">
+      <div class="card" data-tooltip="Brochures, posters, and banners">
         <h3>Marketing Materials</h3>
-        <p>Flyers, posters, brochures, and banners designed to leave an impact.</p>
+        <p>Eye-catching designs for print and digital marketing campaigns.</p>
       </div>
-      <div class="card">
+      <div class="card" data-tooltip="Modern interface design">
         <h3>Web & UI Design</h3>
-        <p>Modern website and app UI/UX design for your business.</p>
+        <p>Clean, responsive designs with user-centered layouts.</p>
+      </div>
+      <div class="card" data-tooltip="Motion and visual effects">
+        <h3>Video Thumbnails & Edits</h3>
+        <p>Professional YouTube thumbnails and visual brand animation design.</p>
       </div>
     </div>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
+  <section id="portfolio" class="portfolio section">
     <h2>Our Work</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Logo Projects</h3>
-        <p>Collection of brand logos created for clients.</p>
+    <p class="section-subtitle">A glimpse into our creative journey.</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" onclick="openModal('logoModal')">
+        <img src="https://via.placeholder.com/400x250" alt="Logo Design" />
+        <h3>Logo Designs</h3>
       </div>
-      <div class="card">
+      <div class="portfolio-item" onclick="openModal('socialModal')">
+        <img src="https://via.placeholder.com/400x250" alt="Social Media Designs" />
         <h3>Social Media Campaigns</h3>
-        <p>Creative designs that powered successful campaigns.</p>
       </div>
-      <div class="card">
+      <div class="portfolio-item" onclick="openModal('brandModal')">
+        <img src="https://via.placeholder.com/400x250" alt="Brand Kits" />
         <h3>Brand Kits</h3>
-        <p>Complete identity packs for strong brand presence.</p>
       </div>
     </div>
   </section>
 
+  <!-- Modal Windows -->
+  <div id="logoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('logoModal')">&times;</span>
+      <h2>Logo Projects</h2>
+      <p>Professional logos created for diverse clients across industries.</p>
+    </div>
+  </div>
+
+  <div id="socialModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('socialModal')">&times;</span>
+      <h2>Social Media Campaigns</h2>
+      <p>Dynamic post and ad designs crafted for engagement and reach.</p>
+    </div>
+  </div>
+
+  <div id="brandModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('brandModal')">&times;</span>
+      <h2>Brand Kits</h2>
+      <p>Comprehensive brand kits for consistent digital presence.</p>
+    </div>
+  </div>
+
   <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
+  <section id="contact" class="contact section">
+    <h2>Let’s Work Together</h2>
+    <p>Have a project in mind? We’d love to bring your vision to life.</p>
     <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
       <button type="submit" class="btn">Send Message</button>
     </form>
   </section>
@@ -99,7 +147,6 @@
   <!-- Footer -->
   <footer class="footer">
     <p>© 2025 HR Graphic Solutions | Designed by Huzaif Ur Rehman</p>
-    <script src="interactivity.js"></script>
   </footer>
 </body>
 </html>

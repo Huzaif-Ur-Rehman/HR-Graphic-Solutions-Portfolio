@@ -17,9 +17,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #00AFC1;
-  color:black;
+  background: #0B1D2A;
   padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .logo img {
@@ -31,7 +33,7 @@ body {
 .logo h1 {
   display: inline-block;
   font-size: 1.5rem;
-  color: white;
+  color: #00AFC1;
 }
 
 .navbar a {
@@ -39,93 +41,184 @@ body {
   text-decoration: none;
   margin: 0 10px;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .navbar a:hover {
   color: #00AFC1;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
-  text-align: center;
-  padding: 4rem 2rem;
   background: linear-gradient(135deg, #00AFC1, #0B1D2A);
   color: white;
-}
-
-.hero .btn {
-  display: inline-block;
-  background: #00AFC1;
-  padding: 10px 20px;
-  margin-top: 1rem;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.hero .btn:hover {
-  background: #088ea5;
-}
-
-/* Section Styles */
-section {
-  padding: 3rem 2rem;
   text-align: center;
+  padding: 6rem 2rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-h2 {
-  color: #0B1D2A;
+.hero h2 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-/* Card Layout */
-.card-container {
+.hero p {
+  font-size: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #00AFC1;
+  padding: 10px 20px;
+  margin-top: 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 175, 193, 0.3);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: #088ea5;
+}
+
+/* Sections */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: #00AFC1;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* About Section */
+.about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
-.card {
-  background: #00AFC1;
+.about-card {
+  background: #f9f9f9;
+  border-radius: 12px;
   padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-}
-.card p {
-  color: white;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-.card:hover {
+.about-card:hover {
   transform: translateY(-5px);
 }
 
-/* Contact Form */
+/* Services */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Tooltip styling */
+.card[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: #0B1D2A;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.portfolio-item {
+  background: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.05);
+}
+
+.portfolio-item img {
+  width: 100%;
+  display: block;
+}
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 2rem;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Contact */
 .contact form {
   max-width: 600px;
-  margin: auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
   margin: 10px 0;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.contact .btn {
-  background: #0B1D2A;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-.contact .btn:hover {
-  background: #00AFC1;
+  border-radius: 6px;
 }
 
 /* Footer */
@@ -133,40 +226,19 @@ h2 {
   background: #0B1D2A;
   color: white;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 1.5rem;
 }
-.footer p {
-  margin: 0;
-}
-.footer a {
-  color: #00AFC1;
-  text-decoration: none;
-}
-.footer a:hover {
-  text-decoration: underline;
-}
-/* Responsive Design */
+
+/* Responsive */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
   }
   .navbar {
-    margin-top: 10px;
+    margin-top: 1rem;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
   }
 }
-@media (max-width: 480px) {
-  .hero {
-    padding: 2rem 1rem;
-  }
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 400px) {
-  .card-container {
-    grid-template-columns: 1fr;
-  }
-}
-/* End of Styles */
